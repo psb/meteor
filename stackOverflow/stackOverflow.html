@@ -1,0 +1,64 @@
+<head>
+  <title>stackOverflow</title>
+</head>
+
+<body>
+  {{> user }}
+  {{> allQuestions }}
+  {{> askQuestion}}
+</body>
+
+<template name="user">  
+  {{#if user}}
+    <p class="user-name">Hello, {{user}}</p>
+  {{else}}
+    <p class="welcome">Hello. Please login.</p>
+  {{/if}}
+  <div class="user-login">
+    <input id="user-login" type="text"/>
+    <input type="button" class="login" value="Login"/>
+  </div>
+</template>
+
+<template name="allQuestions">
+  <div class="all-questions">
+    {{#each questions}}
+      {{> single_question}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="single_question">
+  <div class="single-question {{selected}}">
+    <span class="user">{{user}}</span>
+    <span class="question">{{question}}</span>
+    <span class="date">{{date}}</span>
+    {{#each answers}}
+      {{> answer}}
+    {{/each}}
+    {{> new_answer}}
+  </div>
+</template>
+
+<template name="answer">
+  <div class="answer {{selected}}">
+    <span class="user">{{user}}</span>
+    <span class="answerText">{{answerText}}</span>
+    <span class="date">{{date}}</span>
+    <span class="score">{{score}}</span>
+  </div>
+</template>
+
+<template name="askQuestion">
+  <div class="ask-question">
+    <textarea id="questionBox"></textarea>
+    <input type="button" class="ask" value="Ask" />
+  </div>
+</template>
+
+<template name="new_answer">
+  <div class="new-answer">
+    <textarea id={{_id}}></textarea>
+    <input type="button" class="submit" value="Answer" />
+  </div>
+</template>

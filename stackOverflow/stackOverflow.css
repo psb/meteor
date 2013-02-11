@@ -1,0 +1,13 @@
+/* CSS declarations go here */
+.question {
+  background-color: lightblue;
+}
+
+.single-question.selected {
+  background-color: red;
+}
+
+
+.answerText {
+  background-color: yellow;
+}
